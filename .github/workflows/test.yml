@@ -34,7 +34,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: ./.github/actions/setup-node-env
 
       - uses: dtolnay/rust-toolchain@stable
         with:
@@ -49,6 +48,11 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y libwebkit2gtk-4.1-dev build-essential curl wget libssl-dev libgtk-3-dev libayatana-appindicator3-dev librsvg2-dev
 
-      - run: pnpm run format:be:check
-      - run: pnpm run lint:be
-      - run: pnpm run test:be
+      - name: Check Rust Formatting
+        run: cd src-tauri && cargo fmt --check
+
+      - name: Clippy Linter
+        run: cd src-tauri && cargo clippy -- -D warnings
+
+      - name: Run Rust Tests
+        run: cd src-tauri && cargo test
