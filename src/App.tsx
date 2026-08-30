@@ -1,11 +1,13 @@
-// import { invoke } from "@tauri-apps/api/core";
 import "./index.css";
+import { MainLayout } from "@/shared/components/Layout/MainLayout";
 
 function App() {
   return (
-    <main className="container">
-      <h1>Welcome to Tauri + React</h1>
-    </main>
+    <MainLayout>
+      <div className="p-8">
+        <h1 className="text-2xl font-bold">Bienvenido a StudyHUB</h1>
+      </div>
+    </MainLayout>
   );
 }
 

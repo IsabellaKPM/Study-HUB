@@ -1,7 +1,7 @@
 [package]
 name = "study-hub"
 version = "0.1.0"
-description = "A Tauri App"
+description = "Study HUB"
 authors = ["IsabellaKPM"]
 edition = "2021"
 license = "GPL-3.0-or-later"
